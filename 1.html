@@ -1,22 +1,80 @@
 <script>
+// 一、
+// 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
+// 例如 haystack = "hello", needle = "ll" => 2
+// var strStr = function (haystack, needle) {
+//     if(!haystack.length){
+//         return 0
+//     }
+//     for(let i = 0; i<haystack.length - needle.length; i++){
+//         if(haystack[i] === needle[0]){
+//             if(haystack.substring(i,i+needle.length) === needle) {
+//                 return i
+//             }
+//         }
+//     }
+//     return -1
+
+// };
+
+// var a = strStr('aab', 'aa')
 
 
+// 二、
+// 输入：[[1,2,3],[4,5,6],[7,8,9]]
+// 输出：[[1,4,7],[2,5,8],[3,6,9]]
 
-var strStr = function (haystack, needle) {
-    if(!haystack.length){
-        return 0
-    }
-    for(let i = 0; i<haystack.length - needle.length; i++){
-        if(haystack[i] === needle[0]){
-            if(haystack.substring(i,i+needle.length) === needle) {
-                return i
-            }
-        }
-    }
-    return -1
+// var newArr = function (A) {
+//     // return A[0].map(function (val, ind){
+//     //     A.map(function(row){
+//     //         row[ind]
+//     //         // console.log(row[ind])
+//     //     })
+//     // })
+//     return A[0].map((val, ind) => A.map(row => row[ind]));
+// }
+// console.log(newArr([[1,2,3],[4,5,6],[7,8,9]]))
+// // newArr([[1,2,3],[4,5,6],[7,8,9]])
 
-};
+// let arr = [[1,2,3],[4,5,6],[7,8,9]]
+// let b =  arr[0].map((res,idx)=>{
+//     console.log(res,'res')
+//     return arr.map(new_res=>{
+//         return new_res[idx]
+//         console.log(new_res[idx],'new_res')
+//     })
+// })
+// console.log(b)
 
-var a = strStr('aab', 'aa')
+// 三、 倩倩
+// var arr = [{"tag_name":"123"},{"photos":[1,2,3]},{"content":"123456"}];
+// // arr={x:2,z:1,y:3}
+// var arr = {"tag_name":"123","photos":[1,2,3],"content":"123456"};
+//     var keys = Object.keys(arr).sort()
+//     for(var ki in keys){                     
+//         console.log(keys[ki]+":"+arr[keys[ki]]+",");
+//     }
+// // arr.sort(function(a,b){
+    
+// //     console.log(Object.keys(a) < Object.keys(b))
+// //     return b - a
+// // })
+// console.log(arr)
+
+var clone = function (obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+let a = {name: 'wss', age: '16',sex: 'man'}
+
+// let b = Object.assign({}, a)
+let b = clone(a)
+
+console.log(a,'原始数据')
+console.log(b, '拷贝数据')
+console.log('准备改变数据')
+b.age = 17
+console.log(b, '改变后的数据')
+
+
 
 </script>
