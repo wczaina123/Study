@@ -65,14 +65,20 @@ var clone = function (obj) {
     return JSON.parse(JSON.stringify(obj));
 }
 let a = {name: 'wss', age: '16',sex: 'man'}
-
+// 深拷贝
 // let b = Object.assign({}, a)
-let b = clone(a)
+// let b = clone(a)
+// let {...b} = a
+
+// 浅拷贝
+
+let b = a
 
 console.log(a,'原始数据')
 console.log(b, '拷贝数据')
 console.log('准备改变数据')
 b.age = 17
+console.log(a, '改变后的数据')
 console.log(b, '改变后的数据')
 
 
