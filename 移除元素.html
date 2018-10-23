@@ -1,0 +1,56 @@
+<script>
+
+    // arr = [1,2,3,2,4,5]
+    // val = 2
+
+    // out => 4
+
+    // var nums = [1,2,3,2,4,5]
+    // var val = 2
+    // function removeElement(nums, val) {
+    //     for (let i = 0; i < nums.length; i++) {
+    //         if (nums[i] === val) {
+    //             nums.splice(i, 1);
+    //             i--;
+    //         }
+    //     }
+    //     return nums
+    // };
+
+    // var a = removeElement(nums,val)
+
+    // 输出 target 所在位置。如果没有插入 按照数组中的大小位置插入。
+    // 例如 arr = [1,2,3]  target = 2 => 1
+
+    var nums = [1,3,5,7]
+    var target = 6
+    var searchInsert = function(nums, target) {
+        if(!nums){
+            return false
+        }
+        if(nums[0]>target){
+            return 0
+        } else if(nums[nums.length - 1] < target) {
+            return nums.length
+        } else {
+            var left = 0;
+            var right = nums.length;
+            while(left<=right){
+                var mid = Math.floor((left+right)/2);
+                console.log(target < nums[mid] && target > nums[mid-1])
+                if(target == nums[mid] || (target < nums[mid] && target > nums[mid-1]) ){
+                    return mid
+                }else if(target < nums[mid]){
+                    right = mid - 1;
+                }else{
+                    left = mid + 1;
+                }
+            }
+        }
+    };
+    var a = searchInsert(nums,target)
+
+
+    
+
+</script>

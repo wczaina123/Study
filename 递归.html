@@ -1,0 +1,36 @@
+<script>
+
+function test () {
+    var st = [2,1,3,3]
+    var pNum = [0,0,0,0]
+    var num = 1
+    for(var i=0;i<st.length;i++){
+        num *= st[i]
+    }
+
+    for(var i=0;i<num;i++){
+        if(i>0){
+            this.puset(0,pNum,st)
+        }
+    }
+    console.log(i,pNum)
+};
+
+
+function puset(j,pNum,st){
+    var cp = pNum[j]
+    var cbp = st[j]
+    var r = (cp+1) % cbp
+    if(r==0){
+        pNum[j] = 0
+        var nextP = j + 1
+        if(nextP<st.length){
+            this.puset(nextP,pNum,st)
+        }
+    }
+    else {
+        pNum[j] = cp + 1
+    }
+};
+
+</script>
